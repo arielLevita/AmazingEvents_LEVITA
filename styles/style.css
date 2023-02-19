@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+    /* la propiedad 'box-sizing' viene establecida en el valor 'border-box' a partir del link de Bootstrap */
+}
+
+nav img {
+    max-width: 150px;
+}
+
+.slider {
+    font-size: 40px;
+    background-color: #609EA2;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+.rounded-pill {
+    margin: 0.5rem;
+    padding: 0.5rem;
+}
+
+.card {
+    width: 15rem;
+    height: 22rem;
+    background-color: #F0EEED;
+    box-shadow:  10px 10px 20px #9d9d9d,
+    -10px -10px 20px #ffffff;
+}
+
+.card-image {
+    height: 9rem;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#home-card-1 {
+    background-image: url(../assets/Cinema.jpg);
+}
+
+#home-card-2 {
+    background-image: url(../assets/Costume_Party.jpg);
+}
+
+#home-card-3 {
+    background-image: url(../assets/Food_Fair.jpg);
+}
+
+#home-card-4 {
+    background-image: url(../assets/Marathon.jpg);
+}
+
+#home-card-5 {
+    background-image: url(../assets/Museum_Tour.jpg);
+}
+
+#home-card-6 {
+    background-image: url(../assets/Music_Concert.jpg);
+}
+
+.card-text {
+    font-size: 12px;
+}
+
+.card-bottom a {
+    background-color: #609EA2;
+    color: black;
+}
+
+footer {
+    font-size: 2rem;
+}
