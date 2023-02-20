@@ -25,28 +25,55 @@ h1 {
     font-size: 50px;
 }
 
-.rounded-pill {
-    margin: 0.5rem;
-    padding: 0 0.5rem;
+footer {
+    font-size: 2rem;
 }
 
-.btn-outline-dark, .btn-outline-dark:hover {
-  border: none;
+.cohort-logo img {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 40%;
+    -webkit-border-radius: 40%;
+    -moz-border-radius: 40%;
+    -ms-border-radius: 40%;
+    -o-border-radius: 40%;
+}
+
+
+/* Home | Upcoming Events | Past Events */
+
+.form-check-input {
+    margin: 0 0.5rem;
+}
+
+.form-check-input:focus {
+    border-color: rgba(0, 0, 0, 0.25);
+    box-shadow: none;
+}
+
+.form-check-input:checked {
+    border-color: rgba(0, 0, 0, 0.25);
 }
 
 .card {
-    width: 15rem;
+    width: 18rem;
     height: 22rem;
+    padding: 0.5rem;
     background-color: #F0EEED;
-    box-shadow:  10px 10px 20px #9d9d9d,
-    -10px -10px 20px #ffffff;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
 }
 
 .card-image {
     height: 9rem;
-    width: 100%;
+    margin: 0.5rem;
     background-repeat: no-repeat;
     background-size: cover;
+    box-shadow:  -4px -4px 6px #888888,
+                  4px 4px 6px #ffffff;
 }
 
 #home-card-1 {
@@ -73,25 +100,55 @@ h1 {
     background-image: url(../assets/Music_Concert.jpg);
 }
 
-.card-text {
+.card p {
+    margin-bottom: 0;
+}
+
+.card-body p {
     font-size: 12px;
+}
+
+.card-bottom {
+    margin: auto 0.5rem 0.25rem 0.5rem;
 }
 
 .card-bottom a, button[type="submit"] {
     background-color: #609EA2;
     color: black;
+    box-shadow:  -4px -4px 6px #888888,
+                  4px 4px 6px #ffffff;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
 }
 
-footer {
-    font-size: 2rem;
+
+/* Stats */
+
+table {
+    margin-bottom: 0!important;
 }
 
-.cohort-logo img {
-    height: 3rem;
-    width: 3rem;
-    border-radius: 40%;
-    -webkit-border-radius: 40%;
-    -moz-border-radius: 40%;
-    -ms-border-radius: 40%;
-    -o-border-radius: 40%;
+.text-start {
+    font-size: x-large;
+    font-weight: 600;
+}
+
+
+/* Event Details */
+
+.details-image {
+    box-shadow:  -4px -4px 6px #888888,
+                  4px 4px 6px #ffffff;
+}
+
+.details-data ul {
+    list-style-type: none;
+    list-style-position: inside;
+}
+
+.details-data li>span {
+    font-weight: bold;
 }
