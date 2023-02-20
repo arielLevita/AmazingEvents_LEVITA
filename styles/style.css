@@ -4,6 +4,10 @@
     /* la propiedad 'box-sizing' viene establecida en el valor 'border-box' a partir del link de Bootstrap */
 }
 
+body {
+    min-height: 100vh;
+}
+
 nav img {
     max-width: 150px;
 }
@@ -73,7 +77,7 @@ h1 {
     font-size: 12px;
 }
 
-.card-bottom a {
+.card-bottom a, button[type="submit"] {
     background-color: #609EA2;
     color: black;
 }
