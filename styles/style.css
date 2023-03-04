@@ -1,3 +1,5 @@
+import data 
+
 * {
     margin: 0;
     padding: 0;
@@ -98,6 +100,62 @@ footer {
     box-shadow:  -4px -4px 6px #888888,
                   4px 4px 6px #ffffff;
 }
+
+/* #event1 {
+    background-image: url(https://i.postimg.cc/Fs03hQDt/Collectivities-Party.jpg);
+}
+
+#event2 {
+    background-image: url(https://i.postimg.cc/Fs03hQDt/Collectivities-Party.jpg);
+}
+
+#event3 {
+    background-image: url(https://i.postimg.cc/Fs03hQDt/Collectivities-Party.jpg);
+}
+
+#event4 {
+    background-image: url(https://i.postimg.cc/Fs03hQDt/Collectivities-Party.jpg);
+}
+
+#event5 {
+    background-image: url(https://i.postimg.cc/Fs03hQDt/Collectivities-Party.jpg);
+}
+
+#event6 {
+    background-image: url(https://i.postimg.cc/Fs03hQDt/Collectivities-Party.jpg);
+}
+
+#event7 {
+    background-image: url(https://i.postimg.cc/Fs03hQDt/Collectivities-Party.jpg);
+}
+
+#event8 {
+    background-image: url(https://i.postimg.cc/Fs03hQDt/Collectivities-Party.jpg);
+}
+
+#event9 {
+    background-image: url(https://i.postimg.cc/Fs03hQDt/Collectivities-Party.jpg);
+}
+
+#event10 {
+    background-image: url(https://i.postimg.cc/Fs03hQDt/Collectivities-Party.jpg);
+}
+
+#event11 {
+    background-image: url(https://i.postimg.cc/Fs03hQDt/Collectivities-Party.jpg);
+}
+
+#event12 {
+    background-image: url(https://i.postimg.cc/Fs03hQDt/Collectivities-Party.jpg);
+}
+
+#event13 {
+    background-image: url(https://i.postimg.cc/Fs03hQDt/Collectivities-Party.jpg);
+}
+
+#event14 {
+    background-image: url(https://i.postimg.cc/Fs03hQDt/Collectivities-Party.jpg);
+} */
 
 #home-card-1 {
     background-image: url(../assets/Cinema.jpg);
