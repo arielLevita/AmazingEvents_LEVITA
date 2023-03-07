@@ -105,52 +105,84 @@
                 <input
                   class="form-check-input"
                   type="checkbox"
-                  id="category1"
+                  id="catFoodFair"
                   value=""
                   aria-label="..."
+                  checked
                 />
-                <label for="category1">Category</label>
+                <label for="catFoodFair">Food Fair</label>
               </div>
 
               <div class="d-flex align-items-center mx-2">
                 <input
                   class="form-check-input"
                   type="checkbox"
-                  id="category2"
+                  id="catMuseum"
                   value=""
                   aria-label="..."
+                  checked
                 />
-                <label for="category2">Category</label>
+                <label for="catMuseum">Museum</label>
               </div>
+
               <div class="d-flex align-items-center mx-2">
                 <input
                   class="form-check-input"
                   type="checkbox"
-                  id="category3"
+                  id="catCostumeParty"
                   value=""
                   aria-label="..."
+                  checked
                 />
-                <label for="category3">Category</label>
+                <label for="catCostumeParty">Costume Party</label>
               </div>
+
               <div class="d-flex align-items-center mx-2">
                 <input
                   class="form-check-input"
                   type="checkbox"
-                  id="category4"
+                  id="catMusicConcert"
                   value=""
                   aria-label="..."
+                  checked
                 />
-                <label for="category4">Category</label>
+                <label for="catMusicConcert">Music Concert</label>
               </div>
+
               <div class="d-flex align-items-center mx-2">
                 <input
                   class="form-check-input"
                   type="checkbox"
-                  id="category5"
+                  id="catRace"
                   value=""
                   aria-label="..."
+                  checked
                 />
-                <label for="category5">Category</label>
+                <label for="catRace">Race</label>
+              </div>
+
+              <div class="d-flex align-items-center mx-2">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="catBookExchange"
+                  value=""
+                  aria-label="..."
+                  checked
+                />
+                <label for="catBookExchange">Book Exchange</label>
+              </div>
+
+              <div class="d-flex align-items-center mx-2">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="catCinema"
+                  value=""
+                  aria-label="..."
+                  checked
+                />
+                <label for="catCinema">Cinema</label>
               </div>
             </form>
           </div>
@@ -163,7 +195,7 @@
                 placeholder="Search"
                 aria-label="Search"
               />
-              <button class="btn btn-outline-success" type="submit">
+              <button class="btn" type="submit">
                 <i class="bi bi-search"></i>
               </button>
             </form>
@@ -174,117 +206,8 @@
       <!-- Cards -->
       <div class="container cards-section my-5">
         <div
-          class="row d-flex flex-wrap align-items-center justify-content-center grid gap-3"
-        >
-          <div class="card d-flex flex-column">
-            <div class="card-image" id="home-card-1"></div>
-            <div class="card-body">
-              <h5 class="card-title text-center">Cinema</h5>
-              <p class="text-center">
-                A night out with friends and family watching the latest
-                blockbusters.
-              </p>
-            </div>
-            <div class="row card-bottom d-flex align-items-baseline">
-              <div class="col text-center">
-                <p>Price: $00.00</p>
-              </div>
-              <div class="col btn-details p-0">
-                <a href="#" class="btn btn-sm w-100">Details</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="card d-flex flex-column">
-            <div class="card-image" id="home-card-2"></div>
-            <div class="card-body">
-              <h5 class="card-title text-center">Costume Party</h5>
-              <p class="text-center">
-                A fun and creative event for dressing up in costumes.
-              </p>
-            </div>
-            <div class="row card-bottom d-flex align-items-baseline">
-              <div class="col text-center">
-                <p>Price: $00.00</p>
-              </div>
-              <div class="col btn-details p-0">
-                <a href="#" class="btn btn-sm w-100">Details</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="card d-flex flex-column">
-            <div class="card-image" id="home-card-3"></div>
-            <div class="card-body">
-              <h5 class="card-title text-center">Food Fair</h5>
-              <p class="text-center">
-                Try delicious foods from around the world.
-              </p>
-            </div>
-            <div class="row card-bottom d-flex align-items-baseline">
-              <div class="col text-center">
-                <p>Price: $00.00</p>
-              </div>
-              <div class="col btn-details p-0">
-                <a href="#" class="btn btn-sm w-100">Details</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="card d-flex flex-column">
-            <div class="card-image" id="home-card-4"></div>
-            <div class="card-body">
-              <h5 class="card-title text-center">Marathon</h5>
-              <p class="text-center">
-                Push yourself to your limits with other runners.
-              </p>
-            </div>
-            <div class="row card-bottom d-flex align-items-baseline">
-              <div class="col text-center">
-                <p>Price: $00.00</p>
-              </div>
-              <div class="col btn-details p-0">
-                <a href="#" class="btn btn-sm w-100">Details</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="card d-flex flex-column">
-            <div class="card-image" id="home-card-5"></div>
-            <div class="card-body">
-              <h5 class="card-title text-center">Museum Tour</h5>
-              <p class="text-center">
-                Explore history and culture through guided tours.
-              </p>
-            </div>
-            <div class="row card-bottom d-flex align-items-baseline">
-              <div class="col text-center">
-                <p>Price: $00.00</p>
-              </div>
-              <div class="col btn-details p-0">
-                <a href="#" class="btn btn-sm w-100">Details</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="card d-flex flex-column">
-            <div class="card-image" id="home-card-6"></div>
-            <div class="card-body">
-              <h5 class="card-title text-center">Music Concert</h5>
-              <p class="text-center">
-                Enjoy music from an artist or band live.
-              </p>
-            </div>
-            <div class="row card-bottom d-flex align-items-baseline">
-              <div class="col text-center">
-                <p>Price: $00.00</p>
-              </div>
-              <div class="col btn-details p-0">
-                <a href="#" class="btn btn-sm w-100">Details</a>
-              </div>
-            </div>
-          </div>
-        </div>
+          class="row d-flex flex-wrap align-items-center justify-content-center grid gap-3" id="cards"
+        ></div>
       </div>
     </main>
     
