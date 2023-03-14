@@ -1,5 +1,5 @@
 import data from "./amazing.js";
-import { cardGenerator, showCards } from "./generalModule.js";
+import { eventCategories, filterCategories, checkboxGenerator, cardGenerator, displayCards } from "./generalModule.js";
 
 
 // Guardar la información de amazing.js en variables para facilitar la manipulación.
@@ -8,22 +8,37 @@ let date = data.currentDate;
 
 
 // Transformar el array de eventos en un array de futuros eventos.
-function pastEvArray(events) {
+function pastEvArray() {
     let pastEv = [];
-    for (let event of events) {
-        if (Date.parse(event.date) < Date.parse(date)) {
-            pastEv.push(event);
-        }
-    }
+    pastEv = events.filter(event => Date.parse(event.date) < Date.parse(date));
     return pastEv;
 }
-console.log(pastEvArray(events));
+console.log(pastEvArray());
 
 
-// Lamar a la función para generar tarjetas.
-cardGenerator(pastEvArray(events));
+// Asignar el array obtenido a eventsArray.
+let eventsArray = pastEvArray();
 
 
-// Lamar a la función para mostrar tarjetas.
-showCards(pastEvArray(events));
+// Crear un array con las categorías de los eventos.
+eventCategories(eventsArray)
 
+
+// Crear un nuevo array eliminando los duplicados de la lista de categorías.
+filterCategories(eventsArray);
+
+
+// Asignar el array obtenido a filteredCategories.
+let filteredCategories = filterCategories(eventsArray);
+
+
+// Generar los checkboxes a partir de las categorías filtradas.
+checkboxGenerator(filteredCategories)
+
+
+// Crear el molde de tarjeta dentro del div "cards". Asignarle la imagen de fondo.
+cardGenerator(eventsArray);
+
+
+// Mostrar las tarjetas en función de la selección de los checkboxes.
+displayCards();
