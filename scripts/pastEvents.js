@@ -1,5 +1,5 @@
 import data from "./amazing.js";
-import { eventCategories, filterCategories, checkboxGenerator, cardGenerator, displayCards } from "./generalModule.js";
+import { eventCategories, filterCategories, checkboxGenerator, cardGenerator, displayCardsByCheckbox, displayCardsBySearchbox } from "./generalModule.js";
 
 
 // Guardar la información de amazing.js en variables para facilitar la manipulación.
@@ -37,8 +37,13 @@ checkboxGenerator(filteredCategories)
 
 
 // Crear el molde de tarjeta dentro del div "cards". Asignarle la imagen de fondo.
-cardGenerator(eventsArray);
+cardGenerator(eventsArray)
 
 
 // Mostrar las tarjetas en función de la selección de los checkboxes.
-displayCards();
+displayCardsByCheckbox();
+
+
+// Mostrar las tarjetas en función de la selección del searchbox.
+displayCardsBySearchbox ();
+
