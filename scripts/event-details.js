@@ -29,7 +29,7 @@ function detailsGenerator(event, detailsContainer) {
             <li><span>Category:</span> ${event.category}</li>
             <li><span>Place:</span> ${event.place}</li>
             <li><span>Capacity:</span> ${event.capacity}</li>
-            <li><span>Assistance or estimate:</span> ${event.estimate}</li>
+            <li><span>Assistance/Estimate:</span> ${event.estimate ? event.estimate : event.assistance}</li>
             <li><span>Price:</span> ${event.price}</li>
             </ul>
         </div>`;

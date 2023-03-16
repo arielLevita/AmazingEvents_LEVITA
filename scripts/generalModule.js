@@ -1,12 +1,8 @@
 // FUNCIONES GENERALES PARA EXPORTAR
 
-//! Los filtros funcionan, pero están rotos. No me dejan trabajar si no declaro "eventsArray" en el módulo de funciones, lo cual, a su vez, provoca que los valores se importen junto con las funciones y se rompan upcomingEvents y pastEvents. AYUDA! 
-import data from "./amazing.js";
-// let eventsArray = data.events;
 
 
-
-const categoryCheckboxes = document.getElementById("categorySelectors");
+// const categoryCheckboxes = document.getElementById("categorySelectors");
 const input = document.querySelector('input');
 
 
@@ -19,7 +15,7 @@ export function generalFilter(eventsArray, cardsContainer) {
 
 
 // Generar los checkboxes a partir de las categorías filtradas.
-export function checkboxGenerator(eventsArray) {
+export function checkboxGenerator(eventsArray, categoryCheckboxes) {
     let categoriesArray = eventsArray.map(event => event.category);
     let setEvent = new Set(categoriesArray);
     let filteredCategoriesArray = Array.from(setEvent);

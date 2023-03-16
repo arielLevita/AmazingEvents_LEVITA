@@ -9,6 +9,8 @@ const cardsContainer = document.getElementById("cardsContainer");
 const categorySelectors = document.getElementById("categorySelectors");
 const input = document.querySelector('input')
 
+console.log(input);
+
 // Generar detectores de eventos que disparen determinada función.
 input.addEventListener('input', () => generalFilter(eventsArray, cardsContainer));
 categorySelectors.addEventListener('change', () => generalFilter(eventsArray, cardsContainer));

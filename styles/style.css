@@ -178,6 +178,12 @@ footer {
 
 /* Event Details */
 
+.btn-outline-dark:hover {
+    color: #fff;
+    background-color: #d90368!important;
+    border-color: #d90368!important;
+}
+
 .details-card {
     border: 1px solid rgba(0, 0, 0, 0.125);
     background-color: #F0EEED;
