@@ -1,20 +1,20 @@
 // FUNCIONES GENERALES PARA EXPORTAR
 
-//! Los filtros funcionan, pero están rotos. No me dejan trabajar si no declaro "eventsArray" en el módulo de funciones, lo cual, a su vez, provoca que los valores se importen funto con las funciones y se compan upcomingEvents y pastEvents. AYUDA! 
+//! Los filtros funcionan, pero están rotos. No me dejan trabajar si no declaro "eventsArray" en el módulo de funciones, lo cual, a su vez, provoca que los valores se importen junto con las funciones y se rompan upcomingEvents y pastEvents. AYUDA! 
 import data from "./amazing.js";
-let eventsArray = data.events;
+// let eventsArray = data.events;
 
 
-const allCards = document.getElementById("allCards");
+
 const categoryCheckboxes = document.getElementById("categorySelectors");
 const input = document.querySelector('input');
 
 
 // Unir los filtros.
-export function generalFilter(){
-    let firstFilter = filterBySearchbox(eventsArray, input.value);  
+export function generalFilter(eventsArray, cardsContainer) {
+    let firstFilter = filterBySearchbox(eventsArray, input.value);
     let secondFilter = filterByCheckbox(firstFilter);
-    cardGenerator(secondFilter);
+    cardGenerator(secondFilter, cardsContainer);
 }
 
 
@@ -42,12 +42,12 @@ export function checkboxGenerator(eventsArray) {
 
 
 // Crear el molde de tarjeta dentro del div "cards". Asignarle la imagen de fondo.
-export function cardGenerator(eventsArray) {
-    if(eventsArray.length == 0){
-        cardsContainer.innerHTML = `<h2 class="display-1 fw-bolder">No soup for you!</h2>`;
+export function cardGenerator(eventsArray, cardsContainer) {
+    cardsContainer.innerHTML = '';
+    if (eventsArray.length == 0) {
+        cardsContainer.innerHTML = `<h3 class="display-1 fw-bolder text-center">No soup for you!</h3>`;
         return;
     }
-    allCards.innerHTML = '';
     let dFrag = document.createDocumentFragment();
     eventsArray.forEach(event => {
         let div = document.createElement("div");
@@ -70,25 +70,24 @@ export function cardGenerator(eventsArray) {
         dFrag.appendChild(div)
         dFrag.getElementById(`bg-event${event._id}`).style.backgroundImage = `url(${event.image})`;
     });
-    allCards.appendChild(dFrag);
+    cardsContainer.appendChild(dFrag);
 }
 
 // Crear filtro por input de texto.
 function filterBySearchbox(eventsArray, searchTerm) {
-    console.log(searchTerm);
     let filteredArray = eventsArray.filter(event => event.name.toLowerCase().includes(searchTerm.toLowerCase()));
     return filteredArray;
 }
 
 
 // Crear filtro por input de checkbox.
-function filterByCheckbox(eventsArray){
+function filterByCheckbox(eventsArray) {
     let checkboxes = document.querySelectorAll("input[type='checkbox']");
     let checkboxesArray = Array.from(checkboxes);
     let checkedCheckboxes = checkboxesArray.filter(check => check.checked);
     let checkedCheckboxesValues = checkedCheckboxes.map(checkedCheckbox => checkedCheckbox.value);
     let filteredArray = eventsArray.filter(event => checkedCheckboxesValues.includes(event.category));
-    if(checkedCheckboxes.length > 0){
+    if (checkedCheckboxes.length > 0) {
         console.log(filteredArray)
         return filteredArray;
     };
