@@ -80,12 +80,8 @@ footer {
     background-color: #d90368;
 }
 
-.card {
-    display: none;
-}
 
-.card.show {
-    display: flex;
+.card {
     width: 18rem;
     height: 22rem;
     padding: 0.5rem;

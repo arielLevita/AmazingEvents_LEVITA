@@ -1,57 +1,58 @@
 // FUNCIONES GENERALES PARA EXPORTAR
 
+//! Los filtros funcionan, pero están rotos. No me dejan trabajar si no declaro "eventsArray" en el módulo de funciones, lo cual, a su vez, provoca que los valores se importen funto con las funciones y se compan upcomingEvents y pastEvents. AYUDA! 
+import data from "./amazing.js";
+let eventsArray = data.events;
 
 
-// Crear un array con las categorías de los eventos.
-export function eventCategories(eventsArray) {
-    let eventCategories = [];
-    eventsArray.forEach(eventsArray => {eventCategories.push(eventsArray.category)});
-    return eventCategories;
+const allCards = document.getElementById("allCards");
+const categoryCheckboxes = document.getElementById("categorySelectors");
+const input = document.querySelector('input');
+
+
+// Unir los filtros.
+export function generalFilter(){
+    let firstFilter = filterBySearchbox(eventsArray, input.value);  
+    let secondFilter = filterByCheckbox(firstFilter);
+    cardGenerator(secondFilter);
 }
-
-
-// Crear un nuevo array eliminando los duplicados de la lista de categorías.
-export function filterCategories(eventsArray) {
-    let filteredCategories = eventCategories(eventsArray).filter((value, index, array) => array.indexOf(value) === index);
-    return filteredCategories;
-}
-//! Fuenciona, pero no lo terminé de entender. ¡¡Repasar documentación sobre filter()!!
 
 
 // Generar los checkboxes a partir de las categorías filtradas.
-export function checkboxGenerator(filteredCategories) {
-    let categorySelectors = document.getElementById("categorySelectors");
+export function checkboxGenerator(eventsArray) {
+    let categoriesArray = eventsArray.map(event => event.category);
+    let setEvent = new Set(categoriesArray);
+    let filteredCategoriesArray = Array.from(setEvent);
     let docFrag = document.createDocumentFragment();
-
-    filteredCategories.forEach(filteredCategory => {
+    filteredCategoriesArray.forEach(category => {
         let div = document.createElement("div");
         div.classList.add('d-flex', 'align-items-center', 'mx-2');
         div.innerHTML =
             `<input
                 class="form-check-input"
                 type="checkbox"
-                id="cat${filteredCategory.replace(/\s+/g, '')}"
-                data-category="${filteredCategory}"
-                value=""
-                aria-label="..."
+                id="cat${category.replace(/\s+/g, '')}"
+                value="${category}"
             />
-            <label for="cat${filteredCategory.replace(/\s+/g, '')}">${filteredCategory}</label>`; //! Leer sobre expresiones regulares.
-        docFrag.appendChild(div)
-    })
-    categorySelectors.appendChild(docFrag);
+            <label for="cat${category.replace(/\s+/g, '')}">${category}</label>`; //! Leer sobre expresiones regulares.
+        docFrag.appendChild(div);
+    });
+    categoryCheckboxes.appendChild(docFrag);
 }
 
 
 // Crear el molde de tarjeta dentro del div "cards". Asignarle la imagen de fondo.
 export function cardGenerator(eventsArray) {
-    let cardsContainer = document.getElementById("allCards");
+    if(eventsArray.length == 0){
+        cardsContainer.innerHTML = `<h2 class="display-1 fw-bolder">No soup for you!</h2>`;
+        return;
+    }
+    allCards.innerHTML = '';
     let dFrag = document.createDocumentFragment();
     eventsArray.forEach(event => {
         let div = document.createElement("div");
         div.classList.add('card');
         div.setAttribute('id', `card${event._id}`);
-        div.setAttribute('data-category', `${event.category}`);
-        div.setAttribute('data-name', `${event.name}`);
         div.innerHTML =
             `<div class="card-image" id="bg-event${event._id}"></div>  
             <div class="card-body">
@@ -68,56 +69,28 @@ export function cardGenerator(eventsArray) {
             </div>`;
         dFrag.appendChild(div)
         dFrag.getElementById(`bg-event${event._id}`).style.backgroundImage = `url(${event.image})`;
-    })
-    cardsContainer.appendChild(dFrag);
-}
-
-
-// Mostrar las tarjetas en función de la selección de los checkboxes.
-//! En esta función hay un ciclo demás al inicio. CORREGIR. 
-export function displayCardsByCheckbox() {
-    
-    let checkboxes = document.querySelectorAll('input[type="checkbox"]');
-    let cards = document.querySelectorAll('.card');
-
-    checkboxes.forEach((checkbox) => {
-        checkbox.addEventListener('change', () => {
-            let category = checkbox.dataset.category;
-            cards.forEach((card) => {
-                if (card.dataset.category === category) {
-                    card.classList.toggle('show', checkbox.checked);
-                }
-            });
-        });
-
-        if (!checkboxes.checked) {
-            cards.forEach((card) => {
-            card.classList.toggle('show')});
-        } 
     });
+    allCards.appendChild(dFrag);
+}
+
+// Crear filtro por input de texto.
+function filterBySearchbox(eventsArray, searchTerm) {
+    console.log(searchTerm);
+    let filteredArray = eventsArray.filter(event => event.name.toLowerCase().includes(searchTerm.toLowerCase()));
+    return filteredArray;
 }
 
 
-// Mostrar las tarjetas en función de la selección del searchbox.
-//! Funciona, pero no se queda con la card. CORREGIR. 
-export function displayCardsBySearchbox () {
-    let searchBox = document.getElementById('searchBox');
-    let btnSearch = document.getElementById('btnSearch');
-    let cards = document.querySelectorAll('.card');
-
-    btnSearch.addEventListener('click', () => {
-        let searchTerm = searchBox.value.toLowerCase();
-
-        if(searchTerm.length == 0) {
-            dFrag.innerHTML = `<h2 class="display-1 fw-bolder">No hay coincidencias</h2>`;
-        } else {
-        cards.forEach((card) => {
-            let name = card.dataset.name.toLowerCase();
-            if (name.includes(searchTerm)) {
-            card.classList.add('show');
-            } else {
-            card.classList.remove('show');
-            }
-        });
-    }});
+// Crear filtro por input de checkbox.
+function filterByCheckbox(eventsArray){
+    let checkboxes = document.querySelectorAll("input[type='checkbox']");
+    let checkboxesArray = Array.from(checkboxes);
+    let checkedCheckboxes = checkboxesArray.filter(check => check.checked);
+    let checkedCheckboxesValues = checkedCheckboxes.map(checkedCheckbox => checkedCheckbox.value);
+    let filteredArray = eventsArray.filter(event => checkedCheckboxesValues.includes(event.category));
+    if(checkedCheckboxes.length > 0){
+        console.log(filteredArray)
+        return filteredArray;
+    };
+    return eventsArray;
 }
