@@ -2,15 +2,10 @@ import data from "./amazing.js";
 
 // Guardar la información de amazing.js en una variable para acceder y manipular la información.
 let events = data.events;
-
 const queryString = location.search;
 const params = new URLSearchParams(queryString);
 const detailId = params.get('id');
-
 const event = events.find(event => event._id == detailId);
-
-
-
 let detailsContainer = document.getElementById("event-details");
 
 // Crear el molde de tarjeta dentro del div "cards". Asignarle la imagen de fondo.
@@ -33,9 +28,7 @@ function detailsGenerator(event, detailsContainer) {
             <li><span>Price:</span> ${event.price}</li>
             </ul>
         </div>`;
-        detailsContainer.appendChild(div)
-        document.getElementById(`bg-details${event._id}`).style.backgroundImage = `url(${event.image})`;
-    }
-
-
+    detailsContainer.appendChild(div)
+    document.getElementById(`bg-details${event._id}`).style.backgroundImage = `url(${event.image})`;
+}
 detailsGenerator(event, detailsContainer);

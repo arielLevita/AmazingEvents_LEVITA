@@ -1,19 +1,10 @@
-// FUNCIONES GENERALES PARA EXPORTAR
-
-
-
-// const categoryCheckboxes = document.getElementById("categorySelectors");
-const input = document.querySelector('input');
-
-
+// ----- FUNCIONES GENERALES PARA EXPORTAR -----
 // Unir los filtros.
-export function generalFilter(eventsArray, cardsContainer) {
+export function generalFilter(eventsArray, cardsContainer, input) {
     let firstFilter = filterBySearchbox(eventsArray, input.value);
     let secondFilter = filterByCheckbox(firstFilter);
     cardGenerator(secondFilter, cardsContainer);
 }
-
-
 // Generar los checkboxes a partir de las categorías filtradas.
 export function checkboxGenerator(eventsArray, categoryCheckboxes) {
     let categoriesArray = eventsArray.map(event => event.category);
@@ -35,8 +26,6 @@ export function checkboxGenerator(eventsArray, categoryCheckboxes) {
     });
     categoryCheckboxes.appendChild(docFrag);
 }
-
-
 // Crear el molde de tarjeta dentro del div "cards". Asignarle la imagen de fondo.
 export function cardGenerator(eventsArray, cardsContainer) {
     cardsContainer.innerHTML = '';
@@ -68,14 +57,11 @@ export function cardGenerator(eventsArray, cardsContainer) {
     });
     cardsContainer.appendChild(dFrag);
 }
-
 // Crear filtro por input de texto.
 function filterBySearchbox(eventsArray, searchTerm) {
     let filteredArray = eventsArray.filter(event => event.name.toLowerCase().includes(searchTerm.toLowerCase()));
     return filteredArray;
 }
-
-
 // Crear filtro por input de checkbox.
 function filterByCheckbox(eventsArray) {
     let checkboxes = document.querySelectorAll("input[type='checkbox']");
