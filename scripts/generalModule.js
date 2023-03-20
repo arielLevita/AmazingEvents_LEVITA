@@ -1,4 +1,5 @@
 // ----- FUNCIONES GENERALES PARA EXPORTAR -----
+
 // Unir los filtros.
 export function generalFilter(eventsArray, cardsContainer, input) {
     let firstFilter = filterBySearchbox(eventsArray, input.value);
