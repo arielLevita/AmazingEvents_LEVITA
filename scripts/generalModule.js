@@ -76,3 +76,15 @@ function filterByCheckbox(eventsArray) {
     };
     return eventsArray;
 }
+
+// ----- FUNCIONES PARA EXPORTAR A STATS -----
+
+export function highestPercentage(eventsArray) {
+    let attendance = 0;
+    let capacity = 0;
+    eventsArray.forEach(event => {
+        capacity = event.capacity;
+        attendance = event.assistance ? event.assistence : event.estimate;
+    });
+    return ((attendance/capacity)*100).toFixed(2);
+}
