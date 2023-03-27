@@ -30,9 +30,7 @@ function categoriesFinder(eventsArray) {
 }
 // Identificar qué evento se corresponde con cada categoría.
 function eventByCategoryFinder(eventsArray, categoriesFinder) {
-  return categoriesFinder.map(category =>
-    eventsArray.filter(event => event.category === category)
-  );
+  return categoriesFinder.map(category => eventsArray.filter(event => event.category === category));
 }
 // Calcular la revenue por evento.
 function revenueCalculator(event) {
