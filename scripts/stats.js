@@ -105,7 +105,7 @@ function createTable(categoriesArray, addedRevenues, averageAttendancePercentage
     categoryCell.innerText = category;
     row.appendChild(categoryCell);
     const revenueCell = document.createElement('td');
-    revenueCell.innerText = "$" + revenue.toFixed(2);
+    revenueCell.innerText = "$" + revenue;
     row.appendChild(revenueCell);
     const attendanceCell = document.createElement('td');
     attendanceCell.innerText = attendancePercentage.toFixed(2) + "%";

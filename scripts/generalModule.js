@@ -19,10 +19,10 @@ export function checkboxGenerator(eventsArray, categoryCheckboxes) {
             `<input
                 class="form-check-input"
                 type="checkbox"
-                id="cat${category.replace(/\s+/g, '')}"
+                id="cat${category}"
                 value="${category}"
             />
-            <label for="cat${category.replace(/\s+/g, '')}">${category}</label>`; //! Leer sobre expresiones regulares.
+            <label for="cat${category}">${category}</label>`;
         docFrag.appendChild(div);
     });
     categoryCheckboxes.appendChild(docFrag);
@@ -37,7 +37,7 @@ export function cardGenerator(eventsArray, cardsContainer) {
     let dFrag = document.createDocumentFragment();
     eventsArray.forEach(event => {
         let div = document.createElement("div");
-        div.classList.add('card');
+        div.classList.add('card', 'shadow');
         div.setAttribute('id', `card${event._id}`);
         div.innerHTML =
             `<div class="card-image" id="bg-event${event._id}"></div>  
@@ -49,7 +49,7 @@ export function cardGenerator(eventsArray, cardsContainer) {
                 <div class="col text-center">
                     <p>Price: $ ${event.price}</p>
                 </div>
-                <div class="col btn-details p-0">
+                <div class="col btn-details shadow p-0">
                     <a href="../pages/event-details.html?id=${event._id}" class="btn btn-sm w-100">Details</a>
                 </div>
             </div>`;
@@ -75,16 +75,4 @@ function filterByCheckbox(eventsArray) {
         return filteredArray;
     };
     return eventsArray;
-}
-
-// ----- FUNCIONES PARA EXPORTAR A STATS -----
-
-export function highestPercentage(eventsArray) {
-    let attendance = 0;
-    let capacity = 0;
-    eventsArray.forEach(event => {
-        capacity = event.capacity;
-        attendance = event.assistance ? event.assistence : event.estimate;
-    });
-    return ((attendance/capacity)*100).toFixed(2);
 }

@@ -97,9 +97,10 @@
 
     <main>
       <!-- Selector -->
-      <div class="container">
-        <div class="row my-3">
-          <div class="col-12 col-md-8 d-flex align-items-center">
+      <div class="container-fluid selector">
+        <div class="row">
+          <div class="col-12 col-md-8 d-flex align-items-center justify-content-center">
+            <p class="m-0">Filter by category:</p>
             <form action="#" class="d-flex justify-content-center flex-wrap" id="categorySelectors">
             </form>
           </div>
@@ -112,7 +113,7 @@
                 placeholder="Search"
                 aria-label="Search"
               />
-              <button class="btn" type="submit">
+              <button class="btn shadow" type="submit">
                 <i class="bi bi-search"></i>
               </button>
             </form>
@@ -121,7 +122,7 @@
       </div>
 
       <!-- Cards -->
-      <div class="container cards-section my-5">
+      <div class="container-fluid cards-section my-5">
         <div
           class="row d-flex flex-wrap align-items-center justify-content-center grid gap-3" id="cardsContainer"
         ></div>
@@ -148,7 +149,7 @@
                   <div class="cohort-logo p-0">
                     <img
                       src="../assets/fe11.png"
-                      class="border border-3"
+                      class="border"
                       alt="cohort logo"
                     />
                   </div>
